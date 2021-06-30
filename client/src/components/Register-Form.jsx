@@ -10,6 +10,8 @@ const RegisterForm = ({ setIsSubmitted }) => {
         password2: '',
     });
 
+    const [validationMessage, setValidationMessage] = useState(false);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setValues({
@@ -20,9 +22,13 @@ const RegisterForm = ({ setIsSubmitted }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setIsSubmitted(true);
+        if (values.password !== values.password2) {
+            setValidationMessage(true);
+        } else {
+            setIsSubmitted(true);
+        }
     };
-
+    console.log(values);
     return (
         <div className='form-container'>
             <form className='register-form' onSubmit={handleSubmit}>
@@ -103,6 +109,12 @@ const RegisterForm = ({ setIsSubmitted }) => {
                         onChange={handleChange}
                         required
                     />
+
+                    {validationMessage ? (
+                        <p className='validation-message'>
+                            Passwords do not match
+                        </p>
+                    ) : null}
                 </div>
 
                 <button className='form-input-btn' type='submit'>
