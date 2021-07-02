@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { isModuleNamespaceObject } = require('util/types');
 
 const Schema = mongoose.Schema;
 

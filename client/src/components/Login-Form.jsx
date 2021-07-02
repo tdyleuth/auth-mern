@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../components/Register-Form.css';
+import '../components/Login-Form.css';
 
 const LoginForm = () => {
     const [values, setValues] = useState({
@@ -22,6 +22,7 @@ const LoginForm = () => {
     return (
         <div className='form-container'>
             <form className='login-form' onSubmit={handleSubmit}>
+                <h1>Login into your account</h1>
                 <div className='form-inputs'>
                     <div className='form-inputs'>
                         <label htmlFor='email' className='form-label'>
@@ -52,15 +53,14 @@ const LoginForm = () => {
                             onChange={handleChange}
                             required
                         />
+                        <button className='form-login-btn' type='submit'>
+                            Login
+                        </button>
+                        <span className='form-input-login'>
+                            Don't have an account? Create account
+                            <a href='#'> here</a>
+                        </span>
                     </div>
-
-                    <button className='form-input-btn' type='submit'>
-                        Login
-                    </button>
-                    <span className='form-input-login'>
-                        Don't have an account? Create account
-                        <a href='#'>here</a>
-                    </span>
                 </div>
             </form>
         </div>
